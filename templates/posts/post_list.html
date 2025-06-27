@@ -1,0 +1,33 @@
+{% extends "../main.html" %}
+
+{% block title %}Posty{% endblock %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+   <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+           <li class="breadcrumb-item"><a href="{% url 'home' %}">Strona główna</a></li>
+           <li class="breadcrumb-item active" aria-current="page">Posty</li>
+       </ol>
+   </nav>
+
+   <div class="row">
+       <div class="col-6">
+           <table class="table">
+               <tr>
+                   <th>Tytuł</th>
+                   <th>Autor</th>
+                   <th>Data</th>
+               </tr>
+               {% for p in posts %}
+                   <tr>
+                       <td><a href="{% url "posts:details" p.id %}">{{ p.title }}</a></td>
+                       <td>{{ p.author.nick }}</td>
+                       <td>{{ p.created }}</td>
+                   </tr>
+               {% endfor %}
+           </table>
+       </div>
+   </div>
+{% endblock %}

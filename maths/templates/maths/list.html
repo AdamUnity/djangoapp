@@ -1,0 +1,55 @@
+{% extends "maths/main.html" %}
+
+{% block title %}Lista operacji{% endblock %}
+
+{% block content %}
+    <h1>Historia operacji matematycznych</h1>
+
+    <form method="get" action="">
+        <label for="operation">Szukaj po operacji:</label>
+        <input type="text" name="operation" id="operation" value="{{ operation|default:'' }}">
+        <button type="submit">Szukaj</button>
+    </form>
+
+    <ul>
+       <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>A</th>
+            <th>B</th>
+            <th>Operacja</th>
+            <th>result</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for math in maths %}
+            <tr>
+                <td><a href="/maths/histories/{{ math.id }}">{{ math.id }}</a></td>
+                <td>{{ math.a }}</td>
+                <td>{{ math.b }}</td>
+                <td>{{ math.operation }}</td>
+                <td>{{ math.result }}</td>
+
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">Brak wyników.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+    </ul>
+
+    <div class="pagination">
+        {% if maths.has_previous %}
+            <a href="?page={{ maths.previous_page_number }}{% if operation %}&operation={{ operation }}{% endif %}">Poprzednia</a>
+        {% endif %}
+
+        <span>Strona {{ maths.number }} z {{ maths.paginator.num_pages }}</span>
+
+        {% if maths.has_next %}
+            <a href="?page={{ maths.next_page_number }}{% if operation %}&operation={{ operation }}{% endif %}">Następna</a>
+        {% endif %}
+    </div>
+{% endblock %}

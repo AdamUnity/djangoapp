@@ -1,0 +1,15 @@
+div#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    font-size: 25px;
+    background-color: brown;
+}
+
+div#header img{
+    height: 230px;
+}
+div#header a{
+    color: white;
+}

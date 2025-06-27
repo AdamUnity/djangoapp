@@ -1,0 +1,7 @@
+{% extends "maths/main.html" %}
+{% block title %}{{ title|capfirst }}{% endblock %}
+
+{% block content %}
+   <h1>Działanie matematyczne</h1>
+   <p>{{ a }} {{ operacja }} {{ b }} = <strong>{{ wynik }}</strong></p>
+{% endblock %}

@@ -1,0 +1,9 @@
+
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+    <<h2>{{ author.nick }}</h2>
+<p>Email: {{ author.email }}</p>
+<a href="{% url 'author_list' %}">⟵ Wróć do listy autorów</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Lista autorów</h1>
+<ul>
+  {% for author in authors %}
+    <li><a href="{% url 'author_detail' author.pk %}">{{ author.nick }}</a></li>
+  {% endfor %}
+</ul>
+<a href="{% url 'author_add' %}">Dodaj autora</a>
+
+
+{% endblock %}
