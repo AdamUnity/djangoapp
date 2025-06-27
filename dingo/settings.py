@@ -58,7 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ]
 
 ROOT_URLCONF = 'dingo.urls'
 
@@ -143,3 +144,7 @@ MEDIA_URL = "/media/"
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
+ALLOWED_HOSTS = [".onrender.com"]
+
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-key")
+DEBUG = os.environ.get("DEBUG", "True") == "True"
