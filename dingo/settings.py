@@ -141,3 +141,10 @@ MEDIA_URL = "/media/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
+
+ALLOWED_HOSTS = [
+    "djangoapp-0eit.onrender.com",
+    ".onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
