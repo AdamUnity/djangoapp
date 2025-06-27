@@ -14,7 +14,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+import sys
+print("Using settings module:", sys.modules[__name__])
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -141,10 +142,4 @@ MEDIA_URL = "/media/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
-
-ALLOWED_HOSTS = [
-    "djangoapp-0eit.onrender.com",
-    ".onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = ["*"]
